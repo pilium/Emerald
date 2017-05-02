@@ -1,0 +1,45 @@
+.sandwich {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 15px;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #fff;
+  border-radius: 50px;
+}
+.sandwich-line {
+  position: absolute;
+  left: 50%;
+  margin-left: -12.5px;
+  display: block;
+  width: 25px;
+  height: 4px;
+  background-color: #fff;
+}
+.sandwich-line--top {
+  top: 13px;
+}
+.sandwich-line--middle {
+  top: 21px;
+}
+.sandwich-line--bottom {
+  top: 29px;
+}
+.g-btn {
+  display: inline-block;
+  height: 30px;
+  line-height: 28px;
+  padding: 0 20px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  color: #fff;
+  background-color: @mainColor;
+  cursor: pointer;
+  transition: all .3s ease;
+
+  &:hover {
+    background-color: #fff;
+    color: @mainColor;
+  }
+}

@@ -1,0 +1,26 @@
+.stitches-sprite(@x: 0, @y: 0, @width: 0, @height: 0) {
+    background-position: @x @y;
+    width: @width;
+    height: @height;
+}
+
+.sprite {
+    background-image: url(../img/sprite/sprite.png);    background-repeat: no-repeat;
+    display: block;
+
+    &.sprite-isle-of-man {
+        .stitches-sprite(-10px, -10px, 64px, 64px);
+    }
+
+    &.sprite-male {
+        .stitches-sprite(-94px, -10px, 64px, 64px);
+    }
+
+    &.sprite-man {
+        .stitches-sprite(-10px, -94px, 64px, 64px);
+    }
+
+    &.sprite-man-user {
+        .stitches-sprite(-94px, -94px, 64px, 64px);
+    }
+}

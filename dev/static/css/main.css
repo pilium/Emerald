@@ -4,6 +4,53 @@
 @import '../libs/animate/animate.css';
 @import '../libs/slick/slick.css';
 @import '../libs/slick/slick-theme.css';
+/*
+LESS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: @icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+@icon-home: x y offset_x offset_y width height total_width total_height image_path name;
+
+At the bottom of this section, we provide information about the spritesheet itself
+@spritesheet: width height image @spritesheet-sprites;
+*/
+/*
+The provided classes are intended to be used with the array-like variables
+
+.icon-home {
+  .sprite-width(@icon-home);
+}
+.icon-email {
+  .sprite(@icon-email);
+}
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+/*
+The `.sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of LESS
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+.sprites(@spritesheet-sprites);
+*/
 html {
   font-size: 18px;
   line-height: 1;
@@ -45,6 +92,7 @@ textarea {
 }
 section {
   position: relative;
+  padding: 70px 0;
   margin-bottom: 20px;
 }
 button,
@@ -92,6 +140,17 @@ select {
   border: 2px solid #fff;
   border-radius: 50px;
 }
+.header-nav.active .sandwich-line--top {
+  top: 21px;
+  transform: rotate(45deg);
+}
+.header-nav.active .sandwich-line--middle {
+  opacity: 0;
+}
+.header-nav.active .sandwich-line--bottom {
+  top: 21px;
+  transform: rotate(-45deg);
+}
 .sandwich-line {
   position: absolute;
   left: 50%;
@@ -100,12 +159,14 @@ select {
   width: 25px;
   height: 4px;
   background-color: #fff;
+  transition: all .5s ease;
 }
 .sandwich-line--top {
   top: 13px;
 }
 .sandwich-line--middle {
   top: 21px;
+  opacity: 1;
 }
 .sandwich-line--bottom {
   top: 29px;
@@ -126,6 +187,32 @@ select {
   background-color: #fff;
   color: #007558;
 }
+.g-section-title {
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: 'Kurale', 'Arial', sans-serif;
+  font-size: 42px;
+  color: #007558;
+}
+.g-section-title.g-section-title__white {
+  color: #fff;
+}
+.instagram-text {
+  position: relative;
+  display: inline-block;
+  font-size: 24px;
+  font-family: 'PTSansBold', 'Arial', sans-serif;
+  color: #007558;
+}
+.instagram-text::before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  background: url('../img/svg/instagram.svg') 0 0 no-repeat;
+  width: 35px;
+  height: 35px;
+}
 header {
   background: #007558 url('../img/general/header-bg.jpg') center no-repeat;
   height: 70px;
@@ -144,6 +231,7 @@ header .container {
 .header-logo {
   position: relative;
   top: 35px;
+  z-index: 1;
 }
 .header-nav__title {
   color: #fff;
@@ -156,6 +244,7 @@ header .container {
   margin-bottom: 5px;
   font-family: 'PTSansBold', 'Arial', sans-serif;
   text-transform: uppercase;
+  font-size: 16px;
 }
 .header-phone {
   position: relative;
@@ -181,4 +270,242 @@ header .container {
 }
 .header-phone a:first-child {
   margin-bottom: 5px;
+}
+.header-nav__list {
+  position: absolute;
+  display: none;
+  top: 80px;
+  left: 0;
+  z-index: 1;
+}
+.header-nav__link {
+  display: block;
+  padding: 15px 15px 15px 20px;
+  border-bottom: 1px solid #007558;
+  color: #007558;
+  transition: all .2s linear;
+  background-color: #fff;
+}
+.header-nav__link:hover {
+  background-color: #007558;
+  color: #fff;
+}
+.banner {
+  background: url('../img/content/bg.jpg') center no-repeat;
+  background-size: cover;
+}
+.banner::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  height: 20px;
+  width: 100%;
+  background: url('../img/general/wave.png') 0 0 repeat-x;
+}
+.banner .container {
+  display: -ms-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: end;
+      align-items: flex-end;
+  height: 550px;
+}
+.banner-text {
+  text-align: center;
+  font-size: 30px;
+  font-family: 'PTSansBold', 'Arial', sans-serif;
+  line-height: 1.4;
+  color: #fff;
+}
+.about-content {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.about-video,
+.about-text {
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+  width: 48%;
+}
+.about-text {
+  text-align: center;
+}
+.about-text p {
+  margin-bottom: 25px;
+  line-height: 1.1;
+  color: #007558;
+  text-align: left;
+}
+.services {
+  color: #fff;
+  background: url('../img/general/services-bg.jpg') 0 0 no-repeat;
+  background-size: cover;
+}
+.services::before {
+  position: absolute;
+  top: -1px;
+  display: block;
+  width: 100%;
+  height: 20px;
+  content: '';
+  background: url('../img/general/wave-top.png') -55px 0 repeat-x;
+}
+.services .container {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+.services .g-section-title {
+  width: 100%;
+}
+.services::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  height: 20px;
+  width: 100%;
+  background: url('../img/general/wave.png') 0 0 repeat-x;
+}
+.services-item {
+  position: relative;
+  width: 40%;
+  min-height: 165px;
+  margin: 0 15px 50px;
+  padding-left: 175px;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+}
+.services-item.service-item--center {
+  width: 30%;
+}
+.services-item::before {
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 165px;
+  height: 165px;
+  content: '';
+}
+.services-item__title {
+  font-family: 'PTSansBold', 'Arial', sans-serif;
+  font-size: 24px;
+  display: block;
+  margin-bottom: 10px;
+}
+.services-item__text {
+  line-height: 1.2;
+}
+.services-item--organization::before {
+  background-image: url(../img/sprite/sprite.png);
+  background-position: -360px 0px;
+  width: 165px;
+  height: 165px;
+}
+.services-item--master::before {
+  background-image: url(../img/sprite/sprite.png);
+  background-position: -180px -180px;
+  width: 165px;
+  height: 165px;
+}
+.services-item--photo::before {
+  background-image: url(../img/sprite/sprite.png);
+  background-position: -360px -180px;
+  width: 165px;
+  height: 165px;
+}
+.services-item--decor::before {
+  background-image: url(../img/sprite/sprite.png);
+  background-position: 0px -180px;
+  width: 165px;
+  height: 165px;
+}
+.services-item--banket::before {
+  background-image: url(../img/sprite/sprite.png);
+  background-position: -180px 0px;
+  width: 165px;
+  height: 165px;
+}
+.services-item--registration::before {
+  background-image: url(../img/sprite/sprite.png);
+  background-position: 0px -360px;
+  width: 165px;
+  height: 165px;
+}
+.services-item--artists::before {
+  background-image: url(../img/sprite/sprite.png);
+  background-position: 0px 0px;
+  width: 165px;
+  height: 165px;
+}
+.portfolio {
+  height: 1160px;
+}
+.portfolio-item__wrap {
+  display: -ms-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  width: 975px;
+  margin: 0 auto;
+}
+.portfolio-item {
+  position: relative;
+  width: 292px;
+  height: 230px;
+  background-size: cover;
+  cursor: pointer;
+}
+.portfolio-item:hover .portfolio-item__descr {
+  opacity: 1;
+}
+.portfolio-item.portfolio-item--width {
+  width: 390px;
+}
+.portfolio-item__search {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: 10px;
+  bottom: 10px;
+  background-color: #007558;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  z-index: 1;
+}
+.portfolio-item__search::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 12px;
+  height: 12px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: url('../img/svg/search.svg') 0 0 no-repeat;
+  background-size: 100%;
+}
+.portfolio-item__descr {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px 40px 15px 10px;
+  background-color: #007558;
+  color: #fff;
+  text-align: right;
+  opacity: 0;
+  transition: all 0.5s ease;
 }

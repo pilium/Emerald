@@ -1,1 +1,20 @@
-// !
+.header-nav__list {
+  position: absolute;
+  display: none;
+  top: 80px;
+  left: 0;
+  z-index: 1;
+}
+.header-nav__link {
+  display: block;
+  padding: 15px 15px 15px 20px;
+  border-bottom: 1px solid @mainColor;
+  color: @mainColor;
+  transition: all .2s linear;
+  background-color: #fff;
+
+  &:hover {
+    background-color: @mainColor;
+    color: #fff;
+  }
+}

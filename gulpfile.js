@@ -14,8 +14,6 @@ var gulp = require('gulp'),
     plumber = require("gulp-plumber"),
     notify = require("gulp-notify"),
     newer = require("gulp-newer"),
-    svgstore = require("gulp-svgstore"),
-    svgmin = require("gulp-svgmin"),
     autoprefixer = require('gulp-autoprefixer');
 
 // Работа с less
@@ -34,9 +32,6 @@ gulp.task('less', function() {
             return "Message to the notifier: " + error.message;
         }))
         .pipe(autoprefixer(['last 2 version']))
-        .pipe(gulp.dest('dev/static/css'))
-        .pipe(cssnano())
-        .pipe(rename("style.min.css"))
         .pipe(gulp.dest('dev/static/css'))
         .pipe(browsersync.reload({
             stream: true
@@ -106,23 +101,6 @@ gulp.task('spritemade', function() {
 });
 gulp.task('sprite', ['cleansprite', 'spritemade']);
 
-// Сборка спрайтов SVG
-gulp.task('cleanspriteSvg', function() {
-    return del.sync('dev/static/img/sprite/sprite.svg');
-});
-
-gulp.task('spritemadeSvg', function() {
-    return gulp.src('dev/static/img/sprite/*.svg')
-      .pipe(svgmin())
-      .pipe(svgstore({
-        inlineSvg: true
-      }))
-      .pipe(rename("spriteSvg.svg"))
-      .pipe(gulp.dest("dev/static/img/sprite/"));
-        });
-gulp.task('spriteSvg', ['cleanspriteSvg', 'spritemade']);
-
-
 // Слежение
 gulp.task('watch', ['browsersync', 'less', 'scripts'], function() {
     gulp.watch('dev/static/less/**/*.less', ['less']);
@@ -138,9 +116,8 @@ gulp.task('clean', function() {
 
 // Оптимизация изображений
 gulp.task('img', function() {
-    return gulp.src(['dev/static/img/**/*.{png,jpg,gif}', '!dev/static/img/sprite/*'])
+    return gulp.src(['dev/static/img/**/*', '!dev/static/img/sprite/*'])
         .pipe(cache(imagemin({
-            optimizationLevel: 3,
             progressive: true,
             use: [pngquant()]
 
@@ -168,8 +145,6 @@ gulp.task('build', ['clean', 'img', 'less', 'scripts'], function() {
             progressive: true,
             use: [pngquant()]
         }))
-        .pipe(gulp.dest('product/static/img/sprite/'));
-    var buildSvg = gulp.src('dev/static/img/sprite/spriteSvg.svg')
         .pipe(gulp.dest('product/static/img/sprite/'));
 });
 

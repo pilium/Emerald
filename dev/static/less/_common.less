@@ -8,6 +8,21 @@
   border: 2px solid #fff;
   border-radius: 50px;
 }
+.header-nav {
+  &.active {
+    .sandwich-line--top {
+      top: 21px;
+      transform: rotate(45deg);
+    }
+    .sandwich-line--middle {
+      opacity: 0;
+    }
+    .sandwich-line--bottom {
+      top: 21px;
+      transform: rotate(-45deg);
+    }
+  }
+}
 .sandwich-line {
   position: absolute;
   left: 50%;
@@ -16,12 +31,14 @@
   width: 25px;
   height: 4px;
   background-color: #fff;
+  transition: all .5s ease;
 }
 .sandwich-line--top {
   top: 13px;
 }
 .sandwich-line--middle {
   top: 21px;
+  opacity: 1;
 }
 .sandwich-line--bottom {
   top: 29px;
@@ -41,5 +58,33 @@
   &:hover {
     background-color: #fff;
     color: @mainColor;
+  }
+}
+.g-section-title {
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: @titleFont;
+  font-size: 42px;
+  color: @mainColor;
+
+  &.g-section-title__white {
+    color: #fff;
+  }
+}
+.instagram-text {
+  position: relative;
+  display: inline-block;
+  font-size: 24px;
+  font-family: @boldFont;
+  color: @mainColor;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    background: url('../img/svg/instagram.svg') 0 0 no-repeat;
+    width: 35px;
+    height: 35px;
   }
 }

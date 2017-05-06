@@ -1,0 +1,128 @@
+.services
+{
+    color: #fff;
+    background: url('../img/general/services-bg.jpg') 0 0 no-repeat;
+    background-size: cover;
+
+    &::before
+    {
+        position: absolute;
+        top: -1px;
+
+        display: block;
+
+        width: 100%;
+        height: 20px;
+
+        content: '';
+
+        background: url('../img/general/wave-top.png') -55px 0 repeat-x;
+    }
+    .container
+    {
+        display: flex;
+
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .g-section-title
+    {
+        width: 100%;
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      height: 20px;
+      width: 100%;
+      background: url('../img/general/wave.png') 0 0 repeat-x;
+    }
+}
+.services-item
+{
+    position: relative;
+
+    width: 40%;
+    min-height: 165px;
+    margin: 0 15px 50px;
+    padding-left: 175px;
+
+    flex-basis: auto;
+
+    &.service-item--center
+    {
+        width: 30%;
+    }
+    &::before
+    {
+        position: absolute;
+        left: 0;
+
+        display: block;
+
+        width: 165px;
+        height: 165px;
+
+        content: '';
+        // background:  url('../img/sprite/sprite.png') 0 0 no-repeat;
+    }
+}
+.services-item__title
+{
+    font-family: @boldFont;
+    font-size: 24px;
+
+    display: block;
+
+    margin-bottom: 10px;
+}
+.services-item__text
+{
+    line-height: 1.2;
+}
+.services-item {
+
+	&--organization {
+    &::before {
+      .sprite(@organization);
+    }
+	}
+
+	&--master {
+    &::before {
+      .sprite(@master);
+    }
+	}
+
+	&--photo {
+    &::before {
+      .sprite(@photo);
+    }
+	}
+
+	&--decor {
+    &::before {
+      .sprite(@decor);
+    }
+	}
+
+	&--banket {
+    &::before {
+      .sprite(@banket);
+    }
+	}
+
+	&--registration {
+    &::before {
+      .sprite(@registration);
+    }
+	}
+
+	&--artists {
+    &::before {
+      .sprite(@artists);
+    }
+	}
+
+}

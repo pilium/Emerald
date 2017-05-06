@@ -1,7 +1,7 @@
 
 @import '_libs.less';  // Подключаем стили библиотек
 @import '_vars.less';  // Подключаем переменные
-@import 'sprite.less';// Подключаем спрайты (просто раскоментируем импорт при появлении PNG спрайтов)
+@import '_sprite.less';// Подключаем спрайты (просто раскоментируем импорт при появлении PNG спрайтов)
 // Подключаем миксины
 @import '_mixins.less';
 
@@ -65,7 +65,7 @@ textarea
 section
 {
     position: relative;
-
+    padding: 70px 0;
     margin-bottom: 20px;
 }
 
@@ -124,5 +124,9 @@ select
 @import 'modules/_header.less'; // Стили шапки
 @import 'modules/_menu.less'; // Стили меню
 @import 'page/_index.less';// Стили главной страницы
+@import 'sections/banner.less'; //Стили для секции баннер
+@import 'sections/about.less'; // Стили для секции О нас
+@import "sections/services.less"; // Стили для секции Услуги
+@import "sections/portfolio.less"; // Стили для секции портфолио
 @import 'modules/_footer.less';// Стили футера
 @import '_media.less';// Стили медиазапросов

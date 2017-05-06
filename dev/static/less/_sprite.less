@@ -1,0 +1,165 @@
+/*
+LESS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: @icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+@icon-home: x y offset_x offset_y width height total_width total_height image_path name;
+
+At the bottom of this section, we provide information about the spritesheet itself
+@spritesheet: width height image @spritesheet-sprites;
+*/
+@artists-name: 'artists';
+@artists-x: 0px;
+@artists-y: 0px;
+@artists-offset-x: 0px;
+@artists-offset-y: 0px;
+@artists-width: 165px;
+@artists-height: 165px;
+@artists-total-width: 525px;
+@artists-total-height: 525px;
+@artists-image: '../img/sprite/sprite.png';
+@artists: 0px 0px 0px 0px 165px 165px 525px 525px '../img/sprite/sprite.png' 'artists';
+@banket-name: 'banket';
+@banket-x: 180px;
+@banket-y: 0px;
+@banket-offset-x: -180px;
+@banket-offset-y: 0px;
+@banket-width: 165px;
+@banket-height: 165px;
+@banket-total-width: 525px;
+@banket-total-height: 525px;
+@banket-image: '../img/sprite/sprite.png';
+@banket: 180px 0px -180px 0px 165px 165px 525px 525px '../img/sprite/sprite.png' 'banket';
+@decor-name: 'decor';
+@decor-x: 0px;
+@decor-y: 180px;
+@decor-offset-x: 0px;
+@decor-offset-y: -180px;
+@decor-width: 165px;
+@decor-height: 165px;
+@decor-total-width: 525px;
+@decor-total-height: 525px;
+@decor-image: '../img/sprite/sprite.png';
+@decor: 0px 180px 0px -180px 165px 165px 525px 525px '../img/sprite/sprite.png' 'decor';
+@master-name: 'master';
+@master-x: 180px;
+@master-y: 180px;
+@master-offset-x: -180px;
+@master-offset-y: -180px;
+@master-width: 165px;
+@master-height: 165px;
+@master-total-width: 525px;
+@master-total-height: 525px;
+@master-image: '../img/sprite/sprite.png';
+@master: 180px 180px -180px -180px 165px 165px 525px 525px '../img/sprite/sprite.png' 'master';
+@organization-name: 'organization';
+@organization-x: 360px;
+@organization-y: 0px;
+@organization-offset-x: -360px;
+@organization-offset-y: 0px;
+@organization-width: 165px;
+@organization-height: 165px;
+@organization-total-width: 525px;
+@organization-total-height: 525px;
+@organization-image: '../img/sprite/sprite.png';
+@organization: 360px 0px -360px 0px 165px 165px 525px 525px '../img/sprite/sprite.png' 'organization';
+@photo-name: 'photo';
+@photo-x: 360px;
+@photo-y: 180px;
+@photo-offset-x: -360px;
+@photo-offset-y: -180px;
+@photo-width: 165px;
+@photo-height: 165px;
+@photo-total-width: 525px;
+@photo-total-height: 525px;
+@photo-image: '../img/sprite/sprite.png';
+@photo: 360px 180px -360px -180px 165px 165px 525px 525px '../img/sprite/sprite.png' 'photo';
+@registration-name: 'registration';
+@registration-x: 0px;
+@registration-y: 360px;
+@registration-offset-x: 0px;
+@registration-offset-y: -360px;
+@registration-width: 165px;
+@registration-height: 165px;
+@registration-total-width: 525px;
+@registration-total-height: 525px;
+@registration-image: '../img/sprite/sprite.png';
+@registration: 0px 360px 0px -360px 165px 165px 525px 525px '../img/sprite/sprite.png' 'registration';
+@spritesheet-width: 525px;
+@spritesheet-height: 525px;
+@spritesheet-image: '../img/sprite/sprite.png';
+@spritesheet-sprites: @artists @banket @decor @master @organization @photo @registration;
+@spritesheet: 525px 525px '../img/sprite/sprite.png' @spritesheet-sprites;
+
+/*
+The provided classes are intended to be used with the array-like variables
+
+.icon-home {
+  .sprite-width(@icon-home);
+}
+.icon-email {
+  .sprite(@icon-email);
+}
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.sprite-width(@sprite) {
+  width: extract(@sprite, 5);
+}
+
+.sprite-height(@sprite) {
+  height: extract(@sprite, 6);
+}
+
+.sprite-position(@sprite) {
+  @sprite-offset-x: extract(@sprite, 3);
+  @sprite-offset-y: extract(@sprite, 4);
+  background-position: @sprite-offset-x @sprite-offset-y;
+}
+
+.sprite-image(@sprite) {
+  @sprite-image: extract(@sprite, 9);
+  @sprite-image-bare: ~`"@{sprite-image}".slice(1, -1)`;
+  background-image: url(@sprite-image-bare);
+}
+
+.sprite(@sprite) {
+  .sprite-image(@sprite);
+  .sprite-position(@sprite);
+  .sprite-width(@sprite);
+  .sprite-height(@sprite);
+}
+
+/*
+The `.sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of LESS
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+.sprites(@spritesheet-sprites);
+*/
+.sprites(@sprites, @i: 1) when (@i <= length(@sprites)) {
+  @sprite: extract(@sprites, @i);
+  @sprite-name: e(extract(@sprite, 10));
+  .@{sprite-name} {
+    .sprite(@sprite);
+  }
+  .sprites(@sprites, @i + 1);
+}

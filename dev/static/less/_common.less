@@ -45,11 +45,11 @@
 }
 .g-btn {
   display: inline-block;
-  height: 30px;
-  line-height: 28px;
-  padding: 0 20px;
+  height: 50px;
+  line-height: 48px;
+  padding: 0 30px;
   border: 1px solid #fff;
-  border-radius: 20px;
+  border-radius: 30px;
   color: #fff;
   background-color: @mainColor;
   cursor: pointer;
@@ -58,6 +58,35 @@
   &:hover {
     background-color: #fff;
     color: @mainColor;
+  }
+  &.g-btn--small {
+    height: 30px;
+    line-height: 28px;
+    padding: 0 20px;
+    border-radius: 20px;
+  }
+  &.g-btn--pdf {
+    position: relative;
+    padding-left: 45px;
+    transition: all 0.5s ease;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 15px;
+      display: block;
+      width: 20px;
+      height: 18px;
+      background:  url(../img/svg/pdf-btn.svg) center no-repeat;
+    }
+    &:hover {
+      background-color: #fff;
+      color: ##007558;
+      &::before {
+        background:  url(../img/svg/pdf-btn__hover.svg) center no-repeat;
+      }
+    }
   }
 }
 .g-section-title {

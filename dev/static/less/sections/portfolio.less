@@ -10,6 +10,16 @@
   width: 975px;
   margin: 0 auto;
 }
+.portfolio-item__line {
+  display: flex;
+}
+.portfolio-item__center {
+  position: relative;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-wrap: wrap;
+}
 .portfolio-item {
   position: relative;
   width: 292px;
@@ -25,6 +35,12 @@
 
   &.portfolio-item--width {
     width: 390px;
+  }
+  &.portfolio-item--height {
+    position: absolute;
+    right: 1px;
+    top: 0;
+    height: 460px;
   }
 }
 .portfolio-item__search {
@@ -62,4 +78,9 @@
   text-align: right;
   opacity: 0;
   transition: all 0.5s ease;
+}
+.portfolio-instagram {
+  margin: 20px auto 0;
+  font-size: 28px;
+  color: @mainColor;
 }

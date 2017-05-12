@@ -1,0 +1,48 @@
+footer
+    .container
+        .footer-content
+            .footer-logo.logo
+                img(src="static/img/general/logo.png" srcset="static/img/general/logo2x.png 2x" alt="logo")
+            .footer-about
+                span.footer-company__name Группа компаний Emerald
+                span.footer-company__descr Органиация свадебных торжеств
+            .footer-phone
+                a(href="tel:+74951955722").footer-phone--city +7 (495) 195-57-22
+                a(href="tel:+79161724569").footer-phone--mobile +7 (916) 172-45-69
+                a(href="tel:+79853941057").footer-phone--mobile +7 (985) 394-10-57
+            ul.footer-social
+                li 
+                    a(href="#").footer-social__link.footer-social__link--vk
+                li 
+                    a(href="#").footer-social__link.footer-social__link--inst
+                li 
+                    a(href="#").footer-social__link.footer-social__link--fb
+                li 
+                    a(href="#").footer-social__link.footer-social__link--wa
+                li 
+                    a(href="#").footer-social__link.footer-social__link--youtube
+
+        .footer-copyright
+            span &#169; 2017 Все права защищены
+            a(href="#") Поитика конфиденциальности
+    
+mixin thirdPartPortfolioItem(className, img, title, description)
+      div(class="portfolio__item portfolio__item--#{className}")
+        img(src= img).portfolio__image
+        h2.portfolio__title= title
+        p.portfolio__description= description
+
+div.portfolio__container.portfolio__container--illustrations
+            +thirdPartPortfolioItem("illustrations", "img/logo1full.png", "Monkey", "Иллюстрация окровавленного шлема с отсылкой к игре DOOM, сочетающая в себе первобытную агрессию. Отдалённо напоминает профиль гориллы.")
+            +thirdPartPortfolioItem("illustrations", "img/logo2full.jpg", "Автопортрет", "Изображение себя в привычном состоянии.")
+            +thirdPartPortfolioItem("illustrations", "img/logo3full.jpg", "Редис", "Иллюстрация/логотип позитивного растения.")
+            +thirdPartPortfolioItem("illustrations", "img/logo4full.jpg", "Clint", "Портрет известного героя вестернов в стиле flat.")
+            +thirdPartPortfolioItem("illustrations", "img/logo5full.jpg", "Плакат", "Мотивирующий плакат.")
+            +thirdPartPortfolioItem("illustrations", "img/logo6full.jpg", "Trand-photo", "Авторская обработка своих фотографий, изображающая мечты.")
+            +thirdPartPortfolioItem("illustrations", "img/logo7full.jpg", "Zorge", "Иллюстрация/логотип известного разведчика.")
+            +thirdPartPortfolioItem("illustrations", "img/logo8full.jpg", "Comediant", "Иллюстрация предположительного убийцы Кеннеди.")
+            +thirdPartPortfolioItem("illustrations", "img/logo9full.jpg", "D", "Одна из иконок. В данном случае обозначает “Design”.")
+            +thirdPartPortfolioItem("illustrations", "img/logo10full.jpg", "Something", "Изображение странной конструкции.")
+            +thirdPartPortfolioItem("illustrations", "img/logo11full.jpg", "Плакат для Конкурса", "С собственными иллюстрациями.")
+            +thirdPartPortfolioItem("illustrations", "img/logo12full.jpg", "IKiM", "Логотип кафедры МПУ – Институт Коммуникации и Медибизнеса.")
+            +thirdPartPortfolioItem("illustrations", "img/logo13full.jpg", "Simhoko", "Для себя.")

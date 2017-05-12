@@ -117,3 +117,54 @@
     height: 35px;
   }
 }
+.form {
+  padding: 50px 25px 35px;
+  max-width: 360px;
+  color: @mainColor;
+  border-radius: 15px;
+  background-color: #fff;
+  text-align: center;
+}
+.form-title {
+  margin-bottom: 30px;
+  font-size: 28px;
+  line-height: 1.3;
+}
+.form-group {
+  position: relative;
+  margin-bottom: 25px;
+
+  &.form-group--phone {
+    margin-bottom: 40px;
+  }
+}
+.form-group--icons {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 34px;
+    display: block;
+    width: 15px;
+    height: 15px;
+  }
+  &.form-group--phone {
+    &::before {
+      background: url('../img/svg/phone-gray.svg') 0 0 no-repeat;
+      background-size: 100%;
+    }
+  }
+  &.form-group--name {
+    &::before {
+      background:  url('../img/svg/user.svg') 0 0 no-repeat;
+      background-size: 100%;
+    }
+  }
+}
+.g-input {
+  height: 40px;
+  line-height: 38px;
+  padding: 0 10px 0 35px;
+  border: 1px solid @grayColor;
+  border-radius: 5px;
+}

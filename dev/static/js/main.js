@@ -31,6 +31,7 @@ $(document).ready(function(){
 
     });
 });
+
 // Select all links with hashes
 $('a[href*="#"]')
   // Remove links that don't actually link to anything
@@ -39,8 +40,8 @@ $('a[href*="#"]')
   .click(function(event) {
     // On-page links
     if (
-      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-      && 
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+      &&
       location.hostname == this.hostname
     ) {
       // Figure out element to scroll to
@@ -62,8 +63,35 @@ $('a[href*="#"]')
           } else {
             $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
             $target.focus(); // Set focus again
-          };
+          }
         });
       }
     }
   });
+
+$('form').on('submit', function() {
+  var formID = '#' + $(this).attr('id');
+  $(formID).validate({
+    rules: {
+      name: 'required',
+      phone: 'required'
+    },
+    messages: {
+      name: 'Введите корректные данные',
+      phone: 'Введите корректный номер телефона'
+    }
+  });
+  if ($(formID).valid()) {
+    $(this).hide();
+    $(this).parent().find('.success-form').addClass('success-show');
+  }
+  return false;
+});
+
+$('.popup-link').magnificPopup({
+  type: 'inline',
+});
+
+$('#close-popup').on('click', function() {
+    $.magnificPopup.close();
+});

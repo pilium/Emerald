@@ -192,6 +192,7 @@ select {
 .g-btn:hover {
   background-color: #fff;
   color: #007558;
+  border: 1px solid #007558;
 }
 .g-btn.g-btn--small {
   height: 30px;
@@ -249,12 +250,22 @@ select {
   height: 35px;
 }
 .form {
+  display: -ms-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 50px 25px 35px;
   max-width: 360px;
   color: #007558;
   border-radius: 15px;
   background-color: #fff;
   text-align: center;
+}
+.form form {
+  display: block;
 }
 .form-title {
   margin-bottom: 30px;
@@ -288,9 +299,39 @@ select {
 .g-input {
   height: 40px;
   line-height: 38px;
+  margin-bottom: 5px;
   padding: 0 10px 0 35px;
   border: 1px solid #898989;
   border-radius: 5px;
+}
+.g-input.error {
+  border-color: red;
+}
+.success-form {
+  position: relative;
+  padding-top: 180px;
+  display: none;
+  font-size: 28px;
+  line-height: 1.2;
+}
+.success-form.success-show {
+  display: block;
+}
+.success-form::before {
+  content: '';
+  display: block;
+  width: 180px;
+  height: 180px;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  margin-left: -90px;
+  background: url('../img/general/success-form.png') 0 0 no-repeat;
+  background-size: 100%;
+}
+.success-text__bold {
+  display: block;
+  font-family: 'PTSansBold', 'Arial', sans-serif;
 }
 header {
   background: #007558 url('../img/general/header-bg.jpg') center no-repeat;
@@ -1327,4 +1368,9 @@ footer .footer-content {
   background-position: -608px -180px;
   width: 52px;
   height: 52px;
+}
+.popup-form {
+  width: 97%;
+  max-width: 360px;
+  margin: 50px auto;
 }

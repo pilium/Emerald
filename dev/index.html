@@ -32,7 +32,7 @@
             <h1 class="header-company__name">Группа компаний Emerald</h1><span class="header-company__descr">Организация свадебных торжеств</span>
           </div>
           <div class="header-logo logo"><img src="static/img/general/logo.png" srcset="static/img/general/logo2x.png 2x" alt="logo"></div>
-          <div class="header-phone"><a href="tel:+749551955722">+7 495 519 55 722</a><a href="tel:+798539441057">+7 985 394 41 057</a></div><a class="g-btn g-btn--small" href="#">Заказать звонок</a>
+          <div class="header-phone"><a href="tel:+749551955722">+7 495 519 55 722</a><a href="tel:+798539441057">+7 985 394 41 057</a></div><a class="g-btn g-btn--small popup-link" href="#feedback">Заказать звонок</a>
         </div>
       </header>
       <section class="banner" id="banner">
@@ -181,7 +181,7 @@
             </div>
           </div>
           <div class="price-order">
-            <p>Подробная консультация по телефону:  <a href="tel:+74951955722">+7 (495) 195-57-22  </a>или оставьте заявку:</p><a class="g-btn" href="#">Оставьте заявку</a>
+            <p>Подробная консультация по телефону:  <a href="tel:+74951955722">+7 (495) 195-57-22  </a>или оставьте заявку:</p><a class="g-btn popup-link" href="#feedback">Оставьте заявку</a>
           </div>
         </div>
       </section>
@@ -365,23 +365,44 @@
                 <li>Почему, стоит избегать агентства, которые работают за %?</li>
               </ul>
             </div>
-            <form class="form form--secret">
-              <p class="form-title">Консультация<br>свадебного специалиста с опытом организации <b>более 200 свадеб!</b></p>
-              <div class="form-group form-group--name form-group--icons">
-                <input class="g-input" type="text" name="name" placeholder="Ваше имя">
-              </div>
-              <div class="form-group form-group--phone form-group--icons">
-                <input class="g-input" type="text" name="phone" placeholder="Ваш телефон">
-              </div>
-              <div class="form-group">
-                <input class="g-btn" type="submit" value="Получить консультацию">
-              </div>
-            </form>
+            <div class="form form--secret">
+              <form id="form--secret">
+                <p class="form-title">Консультация<br>свадебного специалиста с опытом организации <b>более 200 свадеб!</b></p>
+                <div class="form-group form-group--name form-group--icons">
+                  <input class="g-input" type="text" name="name" placeholder="Ваше имя">
+                </div>
+                <div class="form-group form-group--phone form-group--icons">
+                  <input class="g-input" type="text" name="phone" placeholder="Ваш телефон">
+                </div>
+                <div class="form-group">
+                  <input class="g-btn" type="submit" value="Получить консультацию">
+                </div>
+              </form>
+              <div class="success-form"><span class="success-text__bold">Ваша заявка принята!<br></span><span class="succes-text">В ближайшее врямя мы с вами свяжемся.</span></div>
+            </div>
           </div>
         </div>
       </section>
+      <div class="popup-form mfp-hide" id="feedback">
+        <div id="close-popup">x</div>
+        <div class="form form--feedback">
+          <form id="form--feedback">
+            <p class="form-title">Консультация<br>свадебного специалиста с опытом организации <b>более 200 свадеб!</b></p>
+            <div class="form-group form-group--name form-group--icons">
+              <input class="g-input" type="text" name="name" placeholder="Ваше имя">
+            </div>
+            <div class="form-group form-group--phone form-group--icons">
+              <input class="g-input" type="text" name="phone" placeholder="Ваш телефон">
+            </div>
+            <div class="form-group">
+              <input class="g-btn" type="submit" value="Получить консультацию">
+            </div>
+          </form>
+          <div class="success-form"><span class="success-text__bold">Ваша заявка принята!<br></span><span class="succes-text">В ближайшее врямя мы с вами свяжемся.</span></div>
+        </div>
+      </div>
     </div>
-    <footer>
+    <footer id="footer">
       <div class="container">
         <div class="footer-content">
           <div class="footer-logo logo"><img src="static/img/general/logo.png" srcset="static/img/general/logo2x.png 2x" alt="logo"></div>
@@ -398,60 +419,6 @@
         <div class="footer-copyright"><span>&#169; 2017 Все права защищены</span><a href="#">Поитика конфиденциальности</a></div>
       </div>
     </footer>
-    <div class="portfolio__container portfolio__container--illustrations">
-          <div class="portfolio__item portfolio__item--#{className}"><img class="portfolio__image" src="img/logo1full.png">
-            <h2 class="portfolio__title">Monkey</h2>
-            <p class="portfolio__description">Иллюстрация окровавленного шлема с отсылкой к игре DOOM, сочетающая в себе первобытную агрессию. Отдалённо напоминает профиль гориллы.</p>
-          </div>
-          <div class="portfolio__item portfolio__item--#{className}"><img class="portfolio__image" src="img/logo2full.jpg">
-            <h2 class="portfolio__title">Автопортрет</h2>
-            <p class="portfolio__description">Изображение себя в привычном состоянии.</p>
-          </div>
-          <div class="portfolio__item portfolio__item--#{className}"><img class="portfolio__image" src="img/logo3full.jpg">
-            <h2 class="portfolio__title">Редис</h2>
-            <p class="portfolio__description">Иллюстрация/логотип позитивного растения.</p>
-          </div>
-          <div class="portfolio__item portfolio__item--#{className}"><img class="portfolio__image" src="img/logo4full.jpg">
-            <h2 class="portfolio__title">Clint</h2>
-            <p class="portfolio__description">Портрет известного героя вестернов в стиле flat.</p>
-          </div>
-          <div class="portfolio__item portfolio__item--#{className}"><img class="portfolio__image" src="img/logo5full.jpg">
-            <h2 class="portfolio__title">Плакат</h2>
-            <p class="portfolio__description">Мотивирующий плакат.</p>
-          </div>
-          <div class="portfolio__item portfolio__item--#{className}"><img class="portfolio__image" src="img/logo6full.jpg">
-            <h2 class="portfolio__title">Trand-photo</h2>
-            <p class="portfolio__description">Авторская обработка своих фотографий, изображающая мечты.</p>
-          </div>
-          <div class="portfolio__item portfolio__item--#{className}"><img class="portfolio__image" src="img/logo7full.jpg">
-            <h2 class="portfolio__title">Zorge</h2>
-            <p class="portfolio__description">Иллюстрация/логотип известного разведчика.</p>
-          </div>
-          <div class="portfolio__item portfolio__item--#{className}"><img class="portfolio__image" src="img/logo8full.jpg">
-            <h2 class="portfolio__title">Comediant</h2>
-            <p class="portfolio__description">Иллюстрация предположительного убийцы Кеннеди.</p>
-          </div>
-          <div class="portfolio__item portfolio__item--#{className}"><img class="portfolio__image" src="img/logo9full.jpg">
-            <h2 class="portfolio__title">D</h2>
-            <p class="portfolio__description">Одна из иконок. В данном случае обозначает “Design”.</p>
-          </div>
-          <div class="portfolio__item portfolio__item--#{className}"><img class="portfolio__image" src="img/logo10full.jpg">
-            <h2 class="portfolio__title">Something</h2>
-            <p class="portfolio__description">Изображение странной конструкции.</p>
-          </div>
-          <div class="portfolio__item portfolio__item--#{className}"><img class="portfolio__image" src="img/logo11full.jpg">
-            <h2 class="portfolio__title">Плакат для Конкурса</h2>
-            <p class="portfolio__description">С собственными иллюстрациями.</p>
-          </div>
-          <div class="portfolio__item portfolio__item--#{className}"><img class="portfolio__image" src="img/logo12full.jpg">
-            <h2 class="portfolio__title">IKiM</h2>
-            <p class="portfolio__description">Логотип кафедры МПУ – Институт Коммуникации и Медибизнеса.</p>
-          </div>
-          <div class="portfolio__item portfolio__item--#{className}"><img class="portfolio__image" src="img/logo13full.jpg">
-            <h2 class="portfolio__title">Simhoko</h2>
-            <p class="portfolio__description">Для себя.</p>
-          </div>
-    </div>
     <script src="static/js/jquery.js"></script>
     <script src="static/js/libs.min.js"></script>
     <script src="static/js/main.js"></script>

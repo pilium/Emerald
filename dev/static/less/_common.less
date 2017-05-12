@@ -58,6 +58,7 @@
   &:hover {
     background-color: #fff;
     color: @mainColor;
+    border: 1px solid @mainColor;
   }
   &.g-btn--small {
     height: 30px;
@@ -118,12 +119,20 @@
   }
 }
 .form {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
   padding: 50px 25px 35px;
   max-width: 360px;
   color: @mainColor;
   border-radius: 15px;
   background-color: #fff;
   text-align: center;
+
+  form {
+    display: block;
+  }
 }
 .form-title {
   margin-bottom: 30px;
@@ -164,7 +173,38 @@
 .g-input {
   height: 40px;
   line-height: 38px;
+  margin-bottom: 5px;
   padding: 0 10px 0 35px;
   border: 1px solid @grayColor;
   border-radius: 5px;
+
+  &.error {
+    border-color: red;
+  }
+}
+.success-form {
+  position: relative;
+  padding-top: 180px;
+  display: none;
+  font-size: 28px;
+  line-height: 1.2;
+  &.success-show {
+    display: block;
+  }
+  &::before {
+    content: '';
+    display: block;
+    width: 180px;
+    height: 180px;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    margin-left: -90px;
+    background:  url('../img/general/success-form.png') 0 0 no-repeat;
+    background-size: 100%;
+  }
+}
+.success-text__bold {
+  display: block;
+  font-family: @boldFont;
 }

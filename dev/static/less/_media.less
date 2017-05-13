@@ -1,1 +1,40 @@
-// sa
+@media screen and (max-width: 1000px) {
+    .header-about {
+        display: none;
+    }
+    .header-nav {
+        order: 1;
+    }
+    .header-phone {
+        order: 2;
+    }
+    .header-btn {
+        order: 3;
+    }
+    .header-logo {
+        order: 4;
+    }
+}
+@media screen and (max-width: 1000px) {
+    header {
+        height: 110px;
+        background: @mainColor url('../img/general/header-bg.jpg') center repeat-y;
+    }
+    .header-nav__title {
+        display: none;
+    }
+    .header-phone {
+        order: 4;
+    }
+    .header-logo {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        margin-left: -70px;
+    }
+    .header-btn {
+        position: absolute;
+        right: 10px;
+        top: 70px;
+    }
+}

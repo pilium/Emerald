@@ -215,7 +215,7 @@ select {
 }
 .g-btn.g-btn--pdf:hover {
   background-color: #fff;
-  color: ##007558;
+  color: #007558;
 }
 .g-btn.g-btn--pdf:hover::before {
   background: url(../img/svg/pdf-btn__hover.svg) center no-repeat;

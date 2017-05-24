@@ -65,7 +65,6 @@ gulp.task('scripts', function() {
     return gulp.src([
             // Библиотеки
             'dev/static/libs/magnific/jquery.magnific-popup.min.js',
-            'dev/static/libs/bxslider/jquery.bxslider.min.js',
             'dev/static/libs/maskedinput/maskedinput.js',
             'dev/static/libs/slick/slick.min.js',
             'dev/static/libs/validate/jquery.validate.min.js'

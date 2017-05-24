@@ -19,7 +19,7 @@ $(document).ready(function(){
         nextArrow: '.reviews-slider__next',
         responsive: [
     {
-        breakpoint: 1024,
+        breakpoint: 1200,
             settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,
@@ -28,6 +28,33 @@ $(document).ready(function(){
             }
         }
   ]
+
+    });
+    $('.js-price-item__wrap').slick({
+        dots: true,
+        speed: 300,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        adaptiveHeught: true,
+        prevArrow: '.price-slider__prev',
+        nextArrow: '.price-slider__next',
+        responsive: [
+    {
+        breakpoint: 1200,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                infinite: true
+            }
+        },{
+          breakpoint: 1000,
+              settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                  infinite: true,
+                  adaptiveHeught: true
+        }
+  }]
 
     });
 });

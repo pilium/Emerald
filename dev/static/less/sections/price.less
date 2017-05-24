@@ -2,12 +2,13 @@
 {
     background: url('../img/general/price-bg.jpg') 0 0 no-repeat;
     background-size: cover;
+    margin-bottom: 0;
 
     &::before
     {
         position: absolute;
         z-index: 1;
-        top: -1px;
+        top: -3px;
 
         display: block;
 
@@ -22,7 +23,7 @@
     {
         position: absolute;
         z-index: 1;
-        bottom: 0;
+        bottom: -1px;
 
         display: block;
 
@@ -31,30 +32,22 @@
 
         content: '';
 
-        background: url('../img/general/wave.png') 0 0 repeat-x;
+        background: url('../img/general/wave-price.png') 0 0 repeat-x;
     }
 }
 .price-item__wrap {
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  padding: 0 50px;
+  margin-bottom: 30px;
 }
 .price-item {
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30%;
+  position: relative;
+  height: 550px;
   padding: 20px 20px 30px;
-  margin-bottom: 30px;
+  margin: 0 10px;
   border-radius: 10px;
   text-align: center;
   color: @mainColor;
   line-height: 1.2;
-
 }
 .price-item--level1 {
   background:  url('../img/content/price/level1.jpg') 0 0 no-repeat;
@@ -94,6 +87,10 @@
   }
 }
 .price-number {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 30px;
   width: 100%;
   max-width: 260px;
   margin: 0 auto;
@@ -117,4 +114,23 @@
       font-family: @boldFont;
     }
   }
+}
+.price-slider__controls {
+  position: absolute;
+  top: 50%;
+  margin-top: -22px;
+  width: 45px;
+  height: 45px;
+  z-index: 10;
+  cursor: pointer;
+}
+.price-slider__prev {
+  background:  url('../img/svg/arrow-left.svg') 0 0 no-repeat;
+  background-size: 100%;
+  left: 0px;
+}
+.price-slider__next {
+  background:  url('../img/svg/arrow-right.svg') 0 0 no-repeat;
+  background-size: 100%;
+  right: 0px;
 }

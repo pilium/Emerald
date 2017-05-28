@@ -23,8 +23,8 @@ gulp.task('less', function() {
         ])
         .pipe(plumber())
         .pipe(less({
-            'include css': true
-            // compress: true //минификация
+            'include css': true,
+            'compress': true //минификация
         }))
 
 
@@ -67,7 +67,8 @@ gulp.task('scripts', function() {
             'dev/static/libs/magnific/jquery.magnific-popup.min.js',
             'dev/static/libs/maskedinput/maskedinput.js',
             'dev/static/libs/slick/slick.min.js',
-            'dev/static/libs/validate/jquery.validate.min.js'
+            'dev/static/libs/validate/jquery.validate.min.js',
+            'dev/static/libs/jquery.viewportchecker.min.js'
         ])
         .pipe(concat('libs.min.js'))
         .pipe(uglify())

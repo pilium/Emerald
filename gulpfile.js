@@ -24,7 +24,7 @@ gulp.task('less', function() {
         .pipe(plumber())
         .pipe(less({
             'include css': true,
-            'compress': true //минификация
+            // 'compress': true //минификация
         }))
 
 
@@ -32,6 +32,7 @@ gulp.task('less', function() {
             return "Message to the notifier: " + error.message;
         }))
         .pipe(autoprefixer(['last 2 version']))
+        .pipe(cssnano())
         .pipe(gulp.dest('dev/static/css'))
         .pipe(browsersync.reload({
             stream: true

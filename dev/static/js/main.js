@@ -116,9 +116,3 @@ $('.popup-link').magnificPopup({type: 'inline'});
 $('#close-popup').on('click', function() {
   $.magnificPopup.close();
 });
-setTimeout(function() {
-  $('.header-logo').addClass('magictime spaceInUp visible');
-}, 200);
-$(document).ready(function() {
-  $('.team-item').addClass("hidden").viewportChecker({classToAdd: 'visible magictime swap', offset: 100});
-});
